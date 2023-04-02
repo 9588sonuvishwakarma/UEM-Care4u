@@ -1,0 +1,40 @@
+
+     USERNAME:-----
+     PASSWORD:----
+
+
+..........................PATIENT......................
+name - pankajdas
+pass- hello@123
+
+
+name - rakesh
+pass - kumarsanu@123
+
+
+
+name- aditya	
+pasas - arijitsingh@123
+
+.........................DOCTOR........................
+name - suspin 
+pass - hackathon2023
+
+
+name--durgesh	
+pass- gunrat@123
+
+name-- disha
+pass-- hellodisha@123  
+
+
+..........................HOSPITAL...............................
+name== sms	
+pass 123456sms@
+
+
+name==jaiambe
+pass==durgesh@123
+
+name==satelite
+pass==sahitya@123

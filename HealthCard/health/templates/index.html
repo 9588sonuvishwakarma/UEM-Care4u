@@ -1,0 +1,170 @@
+{% extends 'user_navigation.html' %}
+{% load static %}
+{% block body %}
+
+			<!-- /Header -->
+{% if doc %}
+<section class="section section-specialities">
+				<div class="container-fluid">
+					<div class="section-header text-center">
+						<h2 style="color:green;font-family:roman">Searched Doctors</h2><hr>
+<div class="row">
+
+		{% for i in doc %}
+	<div class="col-md-3" style="border:solid 1px lightgray;border-radius:8px">
+								<!-- Doctor Widget -->
+
+								<div class="profile-widget">
+									<div class="doc-img">
+										<a href="#">
+											{% if i.image %}
+											<img class="img-fluid" alt="User Image" src="{{i.image.url}}" style="width:200px;">
+											{% endif %}
+										</a>
+									</div>
+									<div class="pro-content">
+										<h3 class="title">
+											<a href="doctor-profile.html">Dr.{{i.user.first_name}} {{i.user.last_name}}</a>
+											<i class="fas fa-check-circle verified"></i>
+										</h3>
+										<p class="speciality">{{i.specialist}}</p>
+
+										<ul class="available-info">
+											<li>
+												<i class="fas fa-phone"></i> {{i.mobile}}
+											</li>
+											<li>
+												<i class="fas fa-map-marker-alt"></i> {{i.address}} ,{{i.cl_address}}
+											</li>
+											<li>
+												<i class="fas fa-map-marker-alt"></i> {{i.clinic}}
+											</li>
+											<li>
+												<i class="far fa-clock"></i> Available on {{i.daystiming}},<br> {{i.timing}}
+											</li>
+											<li>
+												<i class="far fa-money-bill-alt"></i> {{i.price}} (Per hour charges)
+												<i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+											</li>
+										</ul>
+										<div class="row row-sm">
+											<div class="col-6">
+												<a href="{% url 'login' %}" class="btn view-btn">View Profile</a>
+											</div>
+											<div class="col-6">
+												<a href="{% url 'login' %}" class="btn book-btn">Book Now</a>
+											</div>
+										</div>
+									</div>
+								</div></div>
+								{% endfor %}
+
+</div>
+
+
+
+					</div>
+				</div>
+</section>
+{% else %}
+
+			<!-- Home Banner -->
+			<section class="section section-search">
+				<div class="container-fluid">
+					<div class="banner-wrapper">
+						<div class="banner-header text-center">
+							<h1 style="color: chartreuse;">Welcome to Care 4 U</h1>
+							<h1 style="color: indianred;">Search Doctor, Make an Appointment</h1>
+							
+						</div>
+                         
+						<!-- Search -->
+						<div class="search-box">
+							<form action="" method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="form-group search-location">
+									<input type="text" class="form-control" placeholder="Search Location" name="loc">
+									<span class="form-text">Based on your Location</span>
+								</div>
+								<div class="form-group search-info">
+									<input type="text" class="form-control" placeholder="Search Doctors by specialization" name="spe">
+									<span class="form-text">Ex : Dental or Sugar Check up etc</span>
+								</div>
+								<button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i> <span>Search</span></button>
+							</form>
+						</div>
+						<!-- /Search -->
+						
+					</div>
+				</div>
+			</section>
+			
+
+
+
+			
+		   
+		   <!-- Availabe Features -->
+		   <section class="section section-features">
+				<div class="container-fluid">
+				   <div class="row">
+						<div class="col-md-5 features-img">
+							<img src="{% static 'user/img/features/feature.png' %}" class="img-fluid" alt="Feature">
+						</div>
+						<div class="col-md-7">
+							<div class="section-header">	
+								<h2 class="mt-2">Availabe Features in <span style="color:aqua"> Care 4 U </span></h2>
+								<p> </p>
+							</div>	
+							<div class="features-slider slider">
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-01.jpg' %}" class="img-fluid" alt="Feature">
+									<p>Patient Ward</p>
+								</div>
+								<!-- /Slider Item -->
+								
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-02.jpg' %}" class="img-fluid" alt="Feature">
+									<p>Test Room</p>
+								</div>
+								<!-- /Slider Item -->
+								
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-03.jpg' %}" class="img-fluid" alt="Feature">
+									<p>ICU</p>
+								</div>
+								<!-- /Slider Item -->
+								
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-04.jpg' %}" class="img-fluid" alt="Feature">
+									<p>Laboratory</p>
+								</div>
+								<!-- /Slider Item -->
+								
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-05.jpg' %}" class="img-fluid" alt="Feature">
+									<p>Operation</p>
+								</div>
+								<!-- /Slider Item -->
+								
+								<!-- Slider Item -->
+								<div class="feature-item text-center">
+									<img src="{% static 'user/img/features/feature-06.jpg' %}" class="img-fluid" alt="Feature">
+									<p>Medical</p>
+								</div>
+								<!-- /Slider Item -->
+							</div>
+						</div>
+				   </div>
+				</div>
+			</section>		
+			<!-- Availabe Features -->
+			
+		{% endif %}
+			<!-- Footer -->
+{% endblock %}

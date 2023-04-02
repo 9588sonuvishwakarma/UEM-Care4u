@@ -1,0 +1,59 @@
+<script>
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    
+    script.addEventListener("load", function (event) {
+      const meeting = new VideoSDKMeeting();
+  
+      const config = {
+        name: "vinay baghel",
+        apiKey: "c3b35342-b466-413e-9d82-77c0a65326d3", 
+        meetingId: "nsuspin@123", 
+        redirectOnLeave: "https://www.youtube.com/",
+        micEnabled: true,
+        webcamEnabled: true,
+        participantCanToggleSelfWebcam: true,
+        participantCanToggleSelfMic: true,
+        joinScreen: {
+          visible: true, // Show the join screen ?
+          title: "Virtual Events Quick Start", // Meeting title
+          meetingUrl: window.location.href, // Meeting joining url
+        },
+        layout: {
+            type: "SPOTLIGHT", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+            priority: "PIN", // "SPEAKER" | "PIN",
+            // gridSize: 3,
+          },
+
+          livestream: {
+            enabled: true,
+            autoStart: true,
+            outputs: [
+              {
+                url: "rtmp://x.rtmp.youtube.com/live2",
+                streamKey: "<STREAM KEY FROM YOUTUBE>"
+              },
+            ],
+            layout: {
+              type: "SIDEBAR", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+              priority: "PIN", // "SPEAKER" | "PIN",
+              gridSize: 3,
+            },
+          },
+
+          chatEnabled: true,
+
+
+          raiseHandEnabled: true,
+      };
+      
+      
+      meeting.init(config);
+    });
+    
+    script.src =
+      "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.23/rtc-js-prebuilt.js";
+      
+    document.getElementsByTagName("head")[0].appendChild(script);
+    
+  </script>
